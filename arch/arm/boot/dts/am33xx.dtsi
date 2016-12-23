@@ -687,12 +687,12 @@
 					&cppi41dma 11 1 &cppi41dma 12 1
 					&cppi41dma 13 1 &cppi41dma 14 1>;
 				dma-names =
-					"rx1", "rx2", "rx3", "rx4", "rx5", "rx6", "rx7",
-					"rx8", "rx9", "rx10", "rx11", "rx12", "rx13",
-					"rx14", "rx15",
-					"tx1", "tx2", "tx3", "tx4", "tx5", "tx6", "tx7",
-					"tx8", "tx9", "tx10", "tx11", "tx12", "tx13",
-					"tx14", "tx15";
+					"rx16", "rx17", "rx18", "rx19", "rx20", "rx21", "rx22",
+					"rx23", "rx24", "rx25", "rx26", "rx27", "rx28",
+					"rx29", "rx30",
+					"tx16", "tx17", "tx18", "tx19", "tx20", "tx21", "tx22",
+					"tx23", "tx24", "tx25", "tx26", "tx27", "tx28",
+					"tx29", "tx30";
 			};
 
 			usb1_phy: usb-phy@47401b00 {
