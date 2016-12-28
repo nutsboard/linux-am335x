@@ -335,10 +335,10 @@
 		>;
 	};
 
-	dcan1_pins_default: dcan1_pins_default {
+	dcan0_pins_default: dcan0_pins_default {
 		pinctrl-single,pins = <
-			0x168 (PIN_OUTPUT | MUX_MODE2) /* uart0_ctsn.d_can1_tx */
-			0x16c (PIN_INPUT_PULLDOWN | MUX_MODE2) /* uart0_rtsn.d_can1_rx */
+			0x11c (PIN_OUTPUT | MUX_MODE1) /* mii1_txd3.d_can0_tx */
+			0x120 (PIN_INPUT_PULLDOWN | MUX_MODE1) /* mii1_txd2.d_can0_rx*/
 		>;
 	};
 
@@ -644,10 +644,10 @@
 	ti,no-reset-on-init;
 };
 
-&dcan1 {
-        status = "okay";    /* Enable only if Profile 1 is selected */
-        pinctrl-names = "default";
-        pinctrl-0 = <&dcan1_pins_default>;
+&dcan0 {
+	status = "okay";    /* Enable only if Profile 1 is selected */
+	pinctrl-names = "default";
+	pinctrl-0 = <&dcan0_pins_default>;
 };
 
 &mmc2 {
