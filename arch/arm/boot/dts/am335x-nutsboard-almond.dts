@@ -31,6 +31,18 @@
 		reg = <0x80000000 0x10000000>; /* 256 MB */
 	};
 
+	btwilink {
+		compatible = "btwilink";
+	};
+
+	kim {
+		compatible = "kim";
+		nshutdown_gpio = <43>;
+		dev_name = "/dev/ttyO0";
+		flow_cntrl = <1>;
+		baud_rate = <921600>;
+	};
+
 	vbat: fixedregulator@0 {
 		compatible = "regulator-fixed";
 		regulator-name = "vbat";
@@ -214,6 +226,16 @@
 		>;
 	};
 
+	uart0_pins: pinmux_uart0_pins {
+		pinctrl-single,pins = <
+			0x174 (PIN_OUTPUT_PULLDOWN | MUX_MODE0) /* uart0_txd.uart0_txd */
+			0x170 (PIN_INPUT_PULLUP | MUX_MODE0)  /* uart0_rxd.uart0_rxd */
+			0x168 (PIN_INPUT | MUX_MODE0) /* uart0_ctsn.d_can1_tx */
+			0x16c (PIN_OUTPUT_PULLDOWN | MUX_MODE0) /* uart0_rtsn.d_can1_rx */
+			0x30 (PIN_OUTPUT_PULLUP | MUX_MODE7)	/* gpmc_ad12.gpio1_12 (BT_EN) */
+		>;
+	};
+
 	uart3_pins: pinmux_uart3_pins {
 		pinctrl-single,pins = <
 			0x134 (PIN_INPUT_PULLUP | MUX_MODE1)  /* mii1_rxd3.uart3_rxd */
@@ -361,6 +383,12 @@
 			0x9c (PIN_OUTPUT | MUX_MODE0)		 /* gpmc_be0n_cle.gpmc_be0n_cle */
 		>;
 	};
+};
+
+&uart0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_pins>;
+	status = "okay";
 };
 
 &uart1 {
