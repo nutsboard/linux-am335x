@@ -31,18 +31,6 @@
 		reg = <0x80000000 0x10000000>; /* 256 MB */
 	};
 
-	btwilink {
-		compatible = "btwilink";
-	};
-
-	kim {
-		compatible = "kim";
-		nshutdown_gpio = <43>;
-		dev_name = "/dev/ttyO0";
-		flow_cntrl = <1>;
-		baud_rate = <921600>;
-	};
-
 	vbat: fixedregulator@0 {
 		compatible = "regulator-fixed";
 		regulator-name = "vbat";
@@ -190,6 +178,19 @@
 			dir   = "out";
 		};
 	};
+
+	kim {
+		compatible = "kim";
+		nshutdown_gpio = <44>;
+		dev_name = "/dev/ttyO0";
+		flow_cntrl = <0>;
+		baud_rate = <3000000>;
+	};
+
+	btwilink {
+		compatible = "btwilink";
+	};
+
 };
 
 &am33xx_pinmux {
