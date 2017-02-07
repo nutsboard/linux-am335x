@@ -189,8 +189,8 @@
 		compatible = "kim";
 		nshutdown_gpio = <44>;
 		dev_name = "/dev/ttyO0";
-		flow_cntrl = <0>;
-		baud_rate = <3000000>;
+		flow_cntrl = <1>;
+		baud_rate = <921600>;
 	};
 
 	btwilink {
